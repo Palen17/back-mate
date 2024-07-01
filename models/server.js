@@ -10,7 +10,7 @@ class Server {
         this.port = process.env.PORT;
 
         this.paths = {
-            uploads: '/api/uploads',
+            uploads: '/api/busquedas',
         }
 
         // Conectar a base de datos
@@ -48,7 +48,7 @@ class Server {
     }
 
     routes() {
-        this.app.use( this.paths.uploads, require('../routes/uploads.js'));
+        this.app.use( this.paths.uploads, require('../routes/busquedas.js'));
         
     }
 

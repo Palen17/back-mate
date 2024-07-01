@@ -19,7 +19,7 @@ const cargarArchivo = async(req, res = response) => {
 
 const crearBusqueda = async(req, res = response) => {
 
-    const nombreCarpeta = `./uploads/${req.body.carpeta}`
+    const nombreCarpeta = `./busquedas/${req.body.carpeta}`
     
     try {
         if (!fs.existsSync(nombreCarpeta)) {

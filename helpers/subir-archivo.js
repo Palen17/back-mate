@@ -16,7 +16,7 @@ const subirArchivo = ( files, extensionesValidas = ['pdf'], carpeta = '' ) => {
         }
         
         const nombreTemp = uuidv4() + '.' + extension;
-        const uploadPath = path.join( __dirname, '../uploads/', carpeta, nombreTemp );
+        const uploadPath = path.join( __dirname, '../busquedas/', carpeta, nombreTemp );
 
         archivo.mv(uploadPath, (err) => {
             if (err) {
