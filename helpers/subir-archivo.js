@@ -8,6 +8,7 @@ const subirArchivo = ( files, extensionesValidas = ['pdf'], carpeta = '' ) => {
         const { archivo } = files;
         const nombreCortado = archivo.name.split('.');
         const extension = nombreCortado[ nombreCortado.length - 1 ];
+        
 
         console.log(nombreCortado);
         // Validar la extension
@@ -16,6 +17,17 @@ const subirArchivo = ( files, extensionesValidas = ['pdf'], carpeta = '' ) => {
         }
         
         const nombreTemp = uuidv4() + '.' + extension;
+        try {
+            if (!fs.existsSync(nombreTemp)) {
+              fs.mkdirSync(nombreTemp);
+              res.json({
+                nombreTemp
+              })
+              
+            }
+          } catch (err) {
+            console.error(err);
+          }
         const uploadPath = path.join( __dirname, '../busquedas/', carpeta, nombreTemp );
 
         archivo.mv(uploadPath, (err) => {
